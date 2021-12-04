@@ -1,0 +1,16 @@
+a.inactiveLink {
+  color: black;
+  text-decoration: none;
+  /* align-self: center; */
+}
+
+a.activeLink {
+  color: rgb(141, 25, 187);
+  text-decoration: none;
+}
+
+/* a.activeLink:hover,
+a.inactiveLink:hover {
+  color: rgb(40, 236, 14);
+  text-decoration: none;
+} */
