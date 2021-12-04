@@ -22,3 +22,9 @@ export const Header = () => {
     </HeaderContainer>
   );
 };
+
+// "babel": {
+//    "presets": [
+//      "react-app"
+//    ]
+//  }
