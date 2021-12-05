@@ -1,29 +1,38 @@
-import React, { SyntheticEvent, useState } from 'react';
+import React, { SyntheticEvent, useEffect, useState } from 'react';
 import { Tab, Tabs } from '@mui/material';
-import PhoneIcon from '@mui/icons-material/Phone';
-import FavoriteIcon from '@mui/icons-material/Favorite';
+import HomeIcon from '@mui/icons-material/Home';
+import ListIcon from '@mui/icons-material/List';
 import PersonPinIcon from '@mui/icons-material/PersonPin';
-import { useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 
-const TAB_PATH = ['/', 'content', 'content/5'];
+const TAB_PATH = ['home', 'content', 'account'];
 
 export const TabNavigator = () => {
-  const [value, setValue] = useState(0);
+  const [activeTab, setActiveTab] = useState(0);
   const navigate = useNavigate();
 
+  const location = useLocation();
+
+  // console.log({ location: location.pathname.split('/')[1], tabIndex });
+
+  useEffect(() => {
+    const pathname = location.pathname.split('/')[1];
+    const tabIndex = TAB_PATH.findIndex((path) => path === pathname);
+    const activeIndex = tabIndex >= 0 ? tabIndex : 0;
+    setActiveTab(activeIndex);
+  }, [location]);
   const handleChange = (
     event: SyntheticEvent<Element, Event>,
     value: number
   ) => {
-    setValue(value);
+    // setActiveTab(value);
     navigate(TAB_PATH[value]);
-    console.log({ event, value });
   };
 
   return (
-    <Tabs value={value} onChange={handleChange}>
-      <Tab icon={<PhoneIcon />} label='phone' />
-      <Tab icon={<FavoriteIcon />} label='favorite' />
+    <Tabs value={activeTab} onChange={handleChange}>
+      <Tab icon={<HomeIcon />} label='home' />
+      <Tab icon={<ListIcon />} label='List' />
       <Tab icon={<PersonPinIcon />} label='person' />
     </Tabs>
   );

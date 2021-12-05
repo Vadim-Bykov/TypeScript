@@ -5,7 +5,7 @@ export const setTitle = (title: string) => ({
   title,
 });
 
-export const setUsers = (users: Array<Object>) => ({
+export const setUsers = (users: Object[]) => ({
   type: actionTypes.MAIN_SET_USERS,
   users,
 });

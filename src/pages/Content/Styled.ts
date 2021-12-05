@@ -1,6 +1,4 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  color: white;
-  background-color: #131a22;
-`;
+export const Container = styled.div``;
+export const ContentTitle = styled.h1``;

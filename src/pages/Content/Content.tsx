@@ -1,21 +1,12 @@
-import { Container } from './Styled';
-import { useNavigate, useParams } from 'react-router';
+import React from 'react';
+import { Outlet } from 'react-router';
+import { Container, ContentTitle } from './Styled';
 
 export const Content: React.FC = () => {
-  const navigate = useNavigate();
-  const params = useParams();
-
   return (
     <Container>
-      Content
-      <button
-        onClick={() => {
-          navigate('/');
-        }}
-      >
-        Main
-      </button>
-      {params?.id}
+      <ContentTitle>Content</ContentTitle>
+      <Outlet />
     </Container>
   );
 };

@@ -11,7 +11,7 @@ export const Header = () => {
 
       <NavLinkWrap>
         <NavLink
-          to='/'
+          to='/home'
           className={({ isActive }) =>
             isActive ? styles.activeLink : styles.inactiveLink
           }

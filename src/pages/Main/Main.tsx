@@ -37,18 +37,21 @@ export const Main: React.FC = () => {
         }}
       />
 
-      <Button variant='outlined' endIcon={<FavoriteIcon />}>
-        Go
+      <Button variant='outlined' onClick={handleSubmit(onrRenewTitle)}>
+        set title
       </Button>
-      <button onClick={handleSubmit(onrRenewTitle)}>set title</button>
-      <button onClick={requestUsers}>get users</button>
-      <button
+      <Button variant='outlined' onClick={requestUsers}>
+        get users
+      </Button>
+      <Button
+        variant='outlined'
+        endIcon={<FavoriteIcon />}
         onClick={() => {
-          navigate('/content/5');
+          navigate('/content');
         }}
       >
         Content
-      </button>
+      </Button>
       {users.length ? userNames : ''}
     </Container>
   );
