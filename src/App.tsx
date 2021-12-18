@@ -4,13 +4,16 @@ import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import './App.css';
 import { GlobalStyle } from './AppStyles';
 import { Account } from './pages/Account/Account';
-import { Item } from './pages/Content/components/Item/Item';
-import { List } from './pages/Content/components/List/List';
+import { Item } from './pages/Content/components/Movie/Movie';
+import { MovieList } from './pages/Content/components/MovieList/MovieList';
 import { Content } from './pages/Content/Content';
 import { Header } from './pages/Header/Header';
 import { Main } from './pages/Main//Main';
 import store from './store/store';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { Actors } from './pages/Content/components/Movie/components/Actors';
+import { Collection } from './pages/Content/components/Movie/components/Collection/Collection';
+import { InfiniteMovieList } from './pages/InfiniteMovieList/InfiniteMovieList';
 
 const queryClient = new QueryClient();
 
@@ -34,9 +37,15 @@ function App() {
               <Route path='home' element={<Main />} />
 
               <Route path='content' element={<Content />}>
-                <Route index element={<List />} />
+                <Route index element={<MovieList />} />
                 <Route path=':id' element={<Item />} />
+                <Route path='actors/:id' element={<Actors />} />
+                {/* <Route path=':id' element={<Item />}>
+                  <Route path='actors' element={<Actors />} />
+                </Route> */}
+                <Route path='collection/:id' element={<Collection />} />
               </Route>
+              <Route path='infiniteList' element={<InfiniteMovieList />} />
               <Route path='account' element={<Account />} />
               <Route path='*' element={<h2>Ресурс не найден</h2>} />
             </Routes>

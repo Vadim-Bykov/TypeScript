@@ -24,7 +24,38 @@ export type TSetMovieList = {
   movieList: MovieData;
 };
 
-export type TActions = TSetMovieList;
+export interface TPart {
+  adult: boolean;
+  backdrop_path: string | null;
+  genre_ids: number[];
+  id: number;
+  original_language: string;
+  original_title: string;
+  overview: string;
+  release_date: string;
+  poster_path: string;
+  popularity: number;
+  title: string;
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
+}
+
+export interface TCollection {
+  id: number;
+  name: string;
+  overview: string;
+  poster_path: null | string;
+  backdrop_path: string;
+  parts: TPart[];
+}
+
+export type TSetCollection = {
+  type: typeof actionTypes.MOVIES_SET_COLLECTION;
+  collection: TCollection;
+};
+
+export type TActions = TSetMovieList | TSetCollection;
 
 export type ThunkType = ThunkAction<void, AppStateType, unknown, Action>;
 

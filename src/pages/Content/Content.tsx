@@ -6,6 +6,7 @@ export const Content: React.FC = () => {
   return (
     <Container>
       <ContentTitle>Content</ContentTitle>
+
       <Outlet />
     </Container>
   );

@@ -13,6 +13,12 @@ const moviesReducer = (
         movieList: action.movieList,
       };
 
+    case actionTypes.MOVIES_SET_COLLECTION:
+      return {
+        ...state,
+        collection: action.collection,
+      };
+
     default:
       return state;
   }

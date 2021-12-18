@@ -10,15 +10,14 @@ import {
   ListTitle,
   MovieImage,
   ImageWrap,
-} from './listStyles';
+} from './movieListStyles';
 import Details from '@mui/icons-material/Details';
 import { BASE_IMAGE_URL } from '../../../../consts/consts';
 
-export const List = () => {
+export const MovieList = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const movieList = useSelector(selectors.getMovieList);
-  console.log(movieList);
 
   useEffect(() => {
     dispatch(requestMovieList('popular'));
@@ -37,7 +36,7 @@ export const List = () => {
 
       <FlexContainer>
         {movieList?.map((movie) => (
-          <ImageWrap>
+          <ImageWrap key={movie.id}>
             <MovieImage
               src={`${BASE_IMAGE_URL}w500${movie.poster_path}`}
               onClick={() => navigate(`/content/${movie.id}`)}

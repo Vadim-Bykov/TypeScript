@@ -7,8 +7,24 @@ const instance = axios.create({
   },
 });
 
+type TPathParams = string | undefined;
+
 export const getMovies = (genre: string) =>
   instance.get(`movie/${genre}`).then((response) => response.data);
 
-export const getDetails = (movieId: string | undefined) =>
+export const getDetails = (movieId: TPathParams) =>
   instance.get(`movie/${movieId}`).then((response) => response.data);
+
+export const getCastInfo = (movieId: TPathParams) =>
+  instance.get(`movie/${movieId}/credits`).then((response) => response.data);
+
+export const getCollection = (collectionId: TPathParams) =>
+  instance.get(`collection/${collectionId}`).then((response) => response.data);
+
+export const getInfinityList = ({ pageParam = 1 }) =>
+  instance
+    .get(`movie/${'popular'}`, { params: { page: pageParam } })
+    .then((response) => ({
+      data: response.data,
+      next: response.data.total_pages > pageParam ? pageParam + 1 : false,
+    }));
