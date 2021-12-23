@@ -20,14 +20,14 @@ export const Collection = () => {
   const collection: TCollection = useSelector(selectors.getCollection);
   const [isColor, toggleIsColor] = useState<boolean>(false);
 
-  const { data: collection_1, error } = useQuery<TCollection>(
+  const { data: collection_1 } = useQuery<TCollection>(
     ['collection', params.id],
     () => api.getCollection(params.id)
   );
 
   useEffect(() => {
     dispatch(operations.requestCollection(params.id));
-  }, []);
+  }, [dispatch, params.id]);
 
   console.log({ collection_1, collection });
 

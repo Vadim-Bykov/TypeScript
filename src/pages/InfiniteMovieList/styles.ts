@@ -31,4 +31,6 @@ export const MovieBlock = styled.div`
 `;
 export const Poster = styled.img`
   width: 100%;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px 0px rgba(34, 60, 80, 0.2);
 `;

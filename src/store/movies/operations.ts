@@ -11,7 +11,7 @@ export const requestMovieList =
   (genre: string): ThunkType =>
   async (dispatch) => {
     try {
-      const movieList: MovieData = await api.getMovies(genre);
+      const movieList: MovieData = await api.getMovies({ genre });
       dispatch(setMovieList(movieList));
     } catch (error) {
       console.error(error);

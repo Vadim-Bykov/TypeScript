@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { TabNavigator } from './components/TabNav/TabNavigator';
+import { TabNavigator } from './components/TabNavigator';
 import { HeaderContainer, NavLinkWrap } from './styled';
 import styles from './Hedaer.module.css';
 
